@@ -17,6 +17,12 @@ public class Cliente {
     public int getId() {
         return id;
     }
+    public void setId(int id) {
+        this.id = id;
+        if (id > contadorID) {
+            contadorID = id;
+        }
+    }
 
     public String getNome() {
         return nome;
@@ -44,6 +50,6 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente [ID=" + id + ", Nome=" + nome + ", CPF=" + cpf + ", Cidade=" + cidade + "]";
+        return "Cliente [ ID=" + id + ", Nome=" + nome + ", CPF=" + cpf + ", Cidade=" + cidade + " ]";
     }
 }

@@ -1,21 +1,37 @@
 package gestao.transporte;
 
 public class Motorista {
-    private static int contadorID = 0; // Para gerar IDs únicos
+    private static int contadorID = 0; // Para gerenciar IDs únicos
     private int id;
     private String nome;
     private String cpf;
     private String cnh;
     private String cidade;
 
+    // Construtor principal para novos motoristas
     public Motorista(String nome, String cpf, String cnh, String cidade) {
-        this.id = ++contadorID;
+        this.id = ++contadorID; // Incrementa o ID automaticamente
         this.nome = nome;
         this.cpf = cpf;
         this.cnh = cnh;
         this.cidade = cidade;
     }
 
+    // Construtor para carregar motoristas do arquivo
+    public Motorista(int id, String nome, String cpf, String cnh, String cidade) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.cnh = cnh;
+        this.cidade = cidade;
+
+        // Atualiza o contador para evitar conflito de IDs
+        if (id > contadorID) {
+            contadorID = id;
+        }
+    }
+
+    // Getters e Setters
     public int getId() {
         return id;
     }
